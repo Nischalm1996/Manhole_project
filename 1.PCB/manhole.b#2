@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -191,6 +191,7 @@
 <wire x1="66.294" y1="-0.254" x2="66.294" y2="76.2" width="0" layer="20"/>
 <wire x1="66.294" y1="76.2" x2="0" y2="76.2" width="0" layer="20"/>
 <wire x1="0" y1="76.2" x2="0" y2="-0.254" width="0" layer="20"/>
+<text x="36.421059375" y="42.788840625" size="3.81" layer="16" ratio="11" distance="46" rot="MR270">MANHOLE</text>
 </plain>
 <libraries>
 <library name="jumper" urn="urn:adsk.eagle:library:252">
@@ -934,7 +935,7 @@ design rules under a new name.</description>
 <param name="mdCopperDimension" value="40mil"/>
 <param name="mdDrill" value="6mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="40mil"/>
+<param name="msWidth" value="25mil"/>
 <param name="msDrill" value="1mm"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
@@ -1344,6 +1345,16 @@ design rules under a new name.</description>
 <wire x1="5.900421875" y1="42.482009375" x2="5.900421875" y2="50.92243125" width="1.016" layer="16"/>
 <wire x1="9.407653125" y1="54.4296625" x2="9.407653125" y2="59.2602375" width="1.016" layer="16"/>
 <wire x1="5.900421875" y1="50.92243125" x2="9.407653125" y2="54.4296625" width="1.016" layer="16"/>
+<polygon width="0.635" layer="16" spacing="1.4224" isolate="1.016">
+<vertex x="-0.00508125" y="-0.1041375"/>
+<vertex x="0.0381" y="-0.14731875"/>
+<vertex x="66.19748125" y="-0.14731875"/>
+<vertex x="66.266059375" y="-0.078740625"/>
+<vertex x="66.266059375" y="76.108559375"/>
+<vertex x="66.28638125" y="76.12888125"/>
+<vertex x="0.063496875" y="76.12888125"/>
+<vertex x="-0.002540625" y="76.19491875"/>
+</polygon>
 </signal>
 <signal name="MQ135D0">
 <contactref element="MQ135" pad="3"/>

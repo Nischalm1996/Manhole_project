@@ -191,6 +191,7 @@
 <wire x1="66.294" y1="-0.254" x2="66.294" y2="76.2" width="0" layer="20"/>
 <wire x1="66.294" y1="76.2" x2="0" y2="76.2" width="0" layer="20"/>
 <wire x1="0" y1="76.2" x2="0" y2="-0.254" width="0" layer="20"/>
+<text x="36.421059375" y="42.788840625" size="3.81" layer="16" ratio="11" distance="46" rot="MR270">MANHOLE</text>
 </plain>
 <libraries>
 <library name="jumper" urn="urn:adsk.eagle:library:252">
@@ -945,16 +946,16 @@ design rules under a new name.</description>
 <param name="rvViaInner" value="0.25"/>
 <param name="rvMicroViaOuter" value="0.25"/>
 <param name="rvMicroViaInner" value="0.25"/>
-<param name="rlMinPadTop" value="10mil"/>
+<param name="rlMinPadTop" value="20mil"/>
 <param name="rlMaxPadTop" value="20mil"/>
 <param name="rlMinPadInner" value="10mil"/>
 <param name="rlMaxPadInner" value="20mil"/>
-<param name="rlMinPadBottom" value="10mil"/>
+<param name="rlMinPadBottom" value="20mil"/>
 <param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="8mil"/>
-<param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="8mil"/>
-<param name="rlMaxViaInner" value="20mil"/>
+<param name="rlMinViaOuter" value="30mil"/>
+<param name="rlMaxViaOuter" value="30mil"/>
+<param name="rlMinViaInner" value="30mil"/>
+<param name="rlMaxViaInner" value="30mil"/>
 <param name="rlMinMicroViaOuter" value="4mil"/>
 <param name="rlMaxMicroViaOuter" value="20mil"/>
 <param name="rlMinMicroViaInner" value="4mil"/>
