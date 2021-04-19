@@ -3,7 +3,6 @@
 ## Pin Connection from Board 
 | Pin Name  | Digital Pin                            |
 |-----------|----------------------------------------|
-
 |SCK        | D13                                    |
 | MOSI      | D11                                    |
 | OK        | D6                                     |
@@ -27,3 +26,4 @@
 - SMOKE SENSOR (MQ02,MQ03,MQ07,MQ135)
 - NAVIGATION BUTTON
 - RGB LED
+- GSM 
