@@ -7,9 +7,9 @@
 
 #include "Arduino.h"
 
-#define redPIN    A0  // 19
-#define greenPIN  A1 // 20
-#define bluePIN   A2 // 21  
+#define redPIN    A5  // 19
+#define greenPIN  A6 // 20
+#define bluePIN   A7 // 21  
 
 class rgbLED
 {
