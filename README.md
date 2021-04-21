@@ -24,6 +24,10 @@
 ### MODULES USED
 - DISPLAY 16x2 I2C
 - SMOKE SENSOR (MQ02,MQ03,MQ07,MQ135)
+- MQ02 (LPG, Propane, Hydrogen, even methane)
+- MQ03 (ALCOHOL)
+- MQ07 (CO, benzene)
+- MQ135 (Ammonia, Sulfide, Nitrogen oxide)
 - NAVIGATION BUTTON
 - RGB LED
 - GSM 
