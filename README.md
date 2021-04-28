@@ -16,7 +16,7 @@
 | MQ3       | A1                                     |
 | MQ2       | A2                                     |
 | MQ7       | A3                                     |
-| MQ135     | A4                                     |
+| MQ06      | A4                                     |
 
 
 
@@ -25,9 +25,9 @@
 - DISPLAY 16x2 I2C
 - SMOKE SENSOR (MQ02,MQ03,MQ07,MQ135)
 - MQ02 (LPG, Propane, Hydrogen, even methane)
-- MQ03 (ALCOHOL)
+- MQ03 (ALCOHOL, ammonia)
 - MQ07 (CO, benzene)
-- MQ135 (Ammonia, Sulfide, Nitrogen oxide)
+- MQ06 (iso-butane, propane, LNG)
 - NAVIGATION BUTTON
 - RGB LED
 - GSM 
