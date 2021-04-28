@@ -22,14 +22,14 @@ Button right(7, pullup);
 Button enter(5, pullup);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-LiquidLine welcome_line1(1, 0, "Base-Station ");
-LiquidLine welcome_line2(1, 1, "NO FIRE EVENT!");
+LiquidLine welcome_line1(1, 0, "MANHOLE ");
+LiquidLine welcome_line2(1, 1, "GAS DETECTION");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
-LiquidLine FIRESCREEN11(1, 0, "FIRE DETECTED! ");
-LiquidLine FIRESCREEN12(1, 1, " IN NODE X!");
+LiquidLine FIRESCREEN11(1, 0, "METH", "ALCOHOL");
+LiquidLine FIRESCREEN12(1, 1, " abc","abc");
 LiquidScreen FIRESCREEN1(FIRESCREEN11, FIRESCREEN12);
-LiquidLine FIRESCREEN21(1, 0, "FIRE DETECTED! ");
-LiquidLine FIRESCREEN22(1, 1, " MESSAGE SENT!");
+LiquidLine FIRESCREEN21(1, 0, "Ammonia","CO");
+LiquidLine FIRESCREEN22(1, 1, " abc","abc");
 LiquidScreen FIRESCREEN2(FIRESCREEN21, FIRESCREEN22);
 
 LiquidMenu menu(lcd);
