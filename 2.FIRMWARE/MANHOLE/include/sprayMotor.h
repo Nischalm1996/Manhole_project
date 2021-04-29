@@ -15,14 +15,21 @@ public:
         digitalWrite(in2, LOW);
     }
 
-    motorOn(int tym)
+    motorOn()
+    {
+        digitalWrite(in1, HIGH);
+        digitalWrite(in2, LOW);
+    }
+    motorOff()
+    {
+        digitalWrite(in1, LOW);
+        digitalWrite(in2, LOW);
+    }
+    motor(int tym)
     {
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
         delay(tym);
-    }
-    motorOff()
-    {
         digitalWrite(in1, LOW);
         digitalWrite(in2, LOW);
     }
