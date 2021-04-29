@@ -1,14 +1,14 @@
 #ifndef _SPRAY_MOTOR_H
 #define _SPRAY_MOTOR_H
 const byte in1 = 2;
-const byte in2 = 3;
+const byte in2 = 5;
 class SprayMotor
 {
 public:
     begin()
     {
         pinMode(in1, OUTPUT);
-        pinMode(in2, OUTPUT);
+        pinMode(in2, OUTPsUT);
 
         // Turn off motors - Initial state
         digitalWrite(in1, LOW);

@@ -7,7 +7,7 @@
 #define _MQ135_H
 #include "Arduino.h"
 
-const byte MQ135Pin = A4;
+const byte MQ135Pin = A0;
 
 class MQ135
 {

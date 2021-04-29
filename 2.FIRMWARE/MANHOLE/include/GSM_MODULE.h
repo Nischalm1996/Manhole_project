@@ -3,8 +3,8 @@
 #include "Arduino.h"
 #include <SoftwareSerial.h>
 
-#define RX 4
-#define TX 3
+#define RX 3
+#define TX 4
 
 SoftwareSerial mySerial(RX, TX);
 char incomingByte;

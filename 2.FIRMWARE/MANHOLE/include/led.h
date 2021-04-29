@@ -2,9 +2,9 @@
 #define _LED_H
 #include "Arduino.h"
 
-const byte red = 2;
-const byte green = A3;
-const byte blue = A4;
+const byte red = 1;
+const byte green = A7;
+const byte blue = A6;
 class Led
 {
 public:

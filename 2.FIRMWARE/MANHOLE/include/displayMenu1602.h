@@ -11,30 +11,47 @@
 
 #include "sprayMotor.h"
 #include "led.h"
+#include "mq03.h"
+#include "mq2.h"
+#include "mq135.h"
+#include "mq07.h"
+#include "GSM_MODULE.h"
+
+
+
+
 SprayMotor sprayObj;
 Led ledObj;
+MQ2 mq2obj;
+MQ3 mq3obj;
+MQ7 mq7obj;
+MQ135 mq135obj;
+GSM_MODULE gsm;
 //OK  D5
 //LEFT  D6
 //RIGHT D7
 //BACK  D8
-
+unsigned int mq2 = 0;
+unsigned int mq3 = 0;
+unsigned int mq7 = 0;
+unsigned int mq135 = 0;
 // Button objects instantiation
 const bool pullup = false;
-Button left(6, pullup);
-Button right(7, pullup);
+Button left(7, pullup);
+Button right(6, pullup);
 //Button up(8, pullup);
 //Button down(9, pullup);
-Button enter(5, pullup);
+Button enter(8, pullup);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 LiquidLine welcome_line1(1, 0, "MANHOLE ");
 LiquidLine welcome_line2(1, 1, "GAS DETECTION");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
-LiquidLine gasLine1(1, 0, "METH", "ALCOHOL");
-LiquidLine gasLine2(1, 1, " abc", "abc");
+LiquidLine gasLine1(1, 0, "MQ2", "MQ3");
+LiquidLine gasLine2(1, 1, mq2, mq3);
 LiquidScreen GASSCREEN1(gasLine1, gasLine2);
-LiquidLine gasLine3(1, 0, "CO", "H2S");
-LiquidLine gasLine4(1, 1, " abc", "abc");
+LiquidLine gasLine3(1, 0, "MQ7", "MQ135");
+LiquidLine gasLine4(1, 1, mq7, mq135);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
 LiquidLine clickLine(1,0, " Click OK to");
 LiquidLine spray_line(1, 1, " SPRAY");
@@ -82,10 +99,13 @@ public:
     }
     void showDemo()
     {
+        //send message with values
+
+        gsm.sendMessage("LEVEL EXCEEDED!","+919060344544")
+        
         //turn led red
         ledObj.Red(1000);
-        //send message with values
-        
+
     }
     void runMenu()
     {
@@ -107,6 +127,11 @@ public:
             menu.switch_focus();
             //get the spray system running
         }
+
+        mq2 = mq2obj.getMq2Value();
+        mq3 = mq3obj.getMq3Value();
+        mq7 = mq7obj.getMq7Value();
+        mq135 = mq135obj.getMq135Value();
     }
 };
 
