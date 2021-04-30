@@ -46,11 +46,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 LiquidLine welcome_line1(1, 0, "MANHOLE GAS");
 LiquidLine welcome_line2(1, 1, "DETECTION!");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
-LiquidLine gasLine1(1, 0, "MQ2", "MQ3");
-LiquidLine gasLine2(1, 1, mq2, mq3);
+LiquidLine gasLine1(1, 0, "Methane::", mq2);
+LiquidLine gasLine2(1, 1, "Alcohol::", mq3);
 LiquidScreen GASSCREEN1(gasLine1, gasLine2);
-LiquidLine gasLine3(1, 0, "MQ7      ", "MQ135");
-LiquidLine gasLine4(1, 1, mq7, mq135);
+LiquidLine gasLine3(1, 0, "CO::",mq7);
+LiquidLine gasLine4(1, 1, "NH3/C6H6::", mq135);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
 LiquidLine clickLine(1, 0, " Click OK to");
 LiquidLine spray_line(5, 1, " SPRAY");
@@ -62,18 +62,22 @@ LiquidMenu menu(lcd);
 
 void sprayliquid()
 {
+  ledObj.redOn();
   Serial.println(F("Spray"));
   sprayObj.motor(50);
-  ledObj.Blue(1000);
+  ledObj.redOff();
+
 }
 void showDemo()
 {
-  //send message with values
-Serial.println(F("Demo"));
-  gsm.sendMessage("LEVEL EXCEEDED!", "+919060344544");
-
   //turn led red
-  ledObj.Red(1000);
+  ledObj.redOn();
+  //send message with values
+  Serial.println(F("Demo"));
+  gsm.sendMessage("LEVEL EXCEEDED!", "+919060344544");
+  ledObj.redOff();
+
+
 }
 
 class displayMenu1602
