@@ -5,27 +5,27 @@ const byte in2 = 5;
 class SprayMotor
 {
 public:
-    begin()
+    void begin()
     {
         pinMode(in1, OUTPUT);
-        pinMode(in2, OUTPsUT);
+        pinMode(in2, OUTPUT);
 
         // Turn off motors - Initial state
         digitalWrite(in1, LOW);
         digitalWrite(in2, LOW);
     }
 
-    motorOn()
+    void motorOn()
     {
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);
     }
-    motorOff()
+    void motorOff()
     {
         digitalWrite(in1, LOW);
         digitalWrite(in2, LOW);
     }
-    motor(int tym)
+    void motor(int tym)
     {
         digitalWrite(in1, HIGH);
         digitalWrite(in2, LOW);

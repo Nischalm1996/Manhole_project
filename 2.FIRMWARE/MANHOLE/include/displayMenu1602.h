@@ -17,9 +17,6 @@
 #include "mq07.h"
 #include "GSM_MODULE.h"
 
-
-
-
 SprayMotor sprayObj;
 Led ledObj;
 MQ2 mq2obj;
@@ -27,6 +24,7 @@ MQ3 mq3obj;
 MQ7 mq7obj;
 MQ135 mq135obj;
 GSM_MODULE gsm;
+
 //OK  D5
 //LEFT  D6
 //RIGHT D7
@@ -43,7 +41,8 @@ Button right(6, pullup);
 //Button down(9, pullup);
 Button enter(8, pullup);
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27,16,2);
+
 LiquidLine welcome_line1(1, 0, "MANHOLE ");
 LiquidLine welcome_line2(1, 1, "GAS DETECTION");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
@@ -53,13 +52,28 @@ LiquidScreen GASSCREEN1(gasLine1, gasLine2);
 LiquidLine gasLine3(1, 0, "MQ7", "MQ135");
 LiquidLine gasLine4(1, 1, mq7, mq135);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
-LiquidLine clickLine(1,0, " Click OK to");
+LiquidLine clickLine(1, 0, " Click OK to");
 LiquidLine spray_line(1, 1, " SPRAY");
 LiquidLine demo_line(1, 1, " DEMO");
-LiquidScreen screen3(clickLine,spray);
-LiquidScreen screen4(clickLine,demo);
+LiquidScreen screen3(clickLine, spray_line);
+LiquidScreen screen4(clickLine, demo_line);
 
 LiquidMenu menu(lcd);
+
+void sprayliquid()
+{
+    sprayObj.motor(50);
+    ledObj.Blue(50);
+}
+void showDemo()
+{
+    //send message with values
+
+    gsm.sendMessage("LEVEL EXCEEDED!", "+919060344544");
+
+        //turn led red
+        ledObj.Red(1000);
+}
 
 class displayMenu1602
 {
@@ -73,14 +87,14 @@ public:
         ledObj.begin();
 
         // This is the I2C LCD object initialization.
-        lcd.init();
+        lcd.begin(16, 2);
         lcd.backlight();
         delay(500);
         lcd.noBacklight();
         delay(500);
         lcd.backlight();
-        demo_line.attach_function(1,showDemo);
-        spray_line.attach_function(1,SprayMotor);
+        demo_line.attach_function(1, showDemo);
+        spray_line.attach_function(1, sprayliquid);
         // Menu initialization.
         menu.init();
         // This is the method used to add a screen object to the menu.
@@ -91,22 +105,7 @@ public:
         menu.add_screen(screen4);
         menu.update();
     }
-    void sprayMotor()
-    {
-        sprayObj.motor(50);
-        ledObj.Blue(50);
 
-    }
-    void showDemo()
-    {
-        //send message with values
-
-        gsm.sendMessage("LEVEL EXCEEDED!","+919060344544")
-        
-        //turn led red
-        ledObj.Red(1000);
-
-    }
     void runMenu()
     {
         // Check all the buttons
