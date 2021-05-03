@@ -11,28 +11,26 @@
 
 #include "sprayMotor.h"
 #include "led.h"
-#include "mq03.h"
-#include "mq2.h"
-#include "mq135.h"
-#include "mq07.h"
 #include "GSM_MODULE.h"
+#include "GAS_SENSORS.h"
+
 const String PHONE = "+919449185333";//"+919449185333"
+
 SprayMotor sprayObj;
 Led ledObj;
-MQ2 mq2obj;
-MQ3 mq3obj;
-MQ7 mq7obj;
-MQ135 mq135obj;
+GAS_SENSORS gasObj;
 GSM_MODULE gsm;
 
 //OK  D5
 //LEFT  D6
 //RIGHT D7
 //BACK  D8
-unsigned int mq2 = 0;
-unsigned int mq3 = 0;
-unsigned int mq7 = 0;
-unsigned int mq135 = 0;
+
+float LPG = 0.0;
+float methane = 0.0;
+float co = 0.0;
+float ammonia = 0.0;
+
 // Button objects instantiation
 const bool pullup = false;
 Button left(10, pullup);
@@ -46,11 +44,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 LiquidLine welcome_line1(1, 0, "MANHOLE GAS");
 LiquidLine welcome_line2(1, 1, "DETECTION!");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
-LiquidLine gasLine1(1, 0, "Methane::", mq2);
-LiquidLine gasLine2(1, 1, "Alcohol::", mq3);
+LiquidLine gasLine1(1, 0, "LPG(PPM):", LPG);
+LiquidLine gasLine2(1, 1, "CH4(PPM):", methane);
 LiquidScreen GASSCREEN1(gasLine1, gasLine2);
-LiquidLine gasLine3(1, 0, "CO::", mq7);
-LiquidLine gasLine4(1, 1, "NH3/C6H6::", mq135);
+LiquidLine gasLine3(1, 0, "CO(PPM):", co);
+LiquidLine gasLine4(1, 1, "NH4(PPM):", ammonia);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
 LiquidLine clickLine(1, 0, " Click OK to");
 LiquidLine spray_line(5, 1, " SPRAY");
@@ -74,7 +72,7 @@ void showDemo()
   ledObj.redOn();
   //send message with values
   Serial.println(F("Demo"));
-  String message = "Level Exceeded! \n MQ2 =" + String(mq2) +"\n MQ3 =" + String(mq3) +"\n MQ7 =" + String(mq7) +"\n MQ135 =" + String(mq135);
+  String message = "LPG:" + String(LPG) + "\nCH4=" + String(methane) + "\nCO=" + String(co) + "\nNH4=" + String(ammonia);
   gsm.sendMessage(message, PHONE);
   sprayliquid();
   ledObj.redOff();
@@ -90,19 +88,14 @@ class displayMenu1602
     {
 
       Serial.begin(9600);
+      gasObj.begin();
       sprayObj.begin();
       ledObj.begin();
       ledObj.Red(500);
       ledObj.Blue(500);
       ledObj.Green(500);
-
-      // This is the I2C LCD object initialization.
-      //lcd.begin(16, 2);
+      
       lcd.init();
-      lcd.backlight();
-      delay(500);
-      lcd.noBacklight();
-      delay(500);
       lcd.backlight();
       demo_line.attach_function(1, showDemo);
       spray_line.attach_function(1, sprayliquid);
@@ -115,7 +108,7 @@ class displayMenu1602
       menu.add_screen(screen3);
       menu.add_screen(screen4);
       menu.update();
-      delay(1000);
+      delay(3000);
       menu.next_screen();
 
     }
@@ -142,12 +135,13 @@ class displayMenu1602
         menu.call_function(1);
       }
 
-      mq2 = mq2obj.getMq2Value();
-      mq3 = mq3obj.getMq3Value();
-      mq7 = mq7obj.getMq7Value();
-      mq135 = mq135obj.getMq135Value();
+      LPG = gasObj.getLpgPPM();
+      methane = gasObj.getMethanePPM();
+      co = gasObj.getCoPPM();
+      ammonia = gasObj.getAmmoniaPPM();
+
       count = count + 1;
-      if (count >= 3000)
+      if (count >= 10)
       {
         menu.update();
         count = 0;
