@@ -6,28 +6,28 @@
 |SCK        | D13                                    |
 | MOSI      | D11                                    |
 | OK        | D6                                     |
-| LEFT      | D7                                     |
+| LEFT      | D10                                    |
 | RIGHT     | D8                                     |
-| BACK      | D9                                     |
 | RST       | D12                                    |
-| RED       | A5                                     |
+| RED       | D0                                     |
 | GREEN     | A6                                     |
 | BLUE      | A7                                     |
 | MQ3       | A1                                     |
 | MQ2       | A2                                     |
 | MQ7       | A3                                     |
 | MQ06      | A4                                     |
-
+| MQ135     | A0                                     |
 
 
 
 ### MODULES USED
 - DISPLAY 16x2 I2C
-- SMOKE SENSOR (MQ02,MQ03,MQ07,MQ135)
-- MQ02 (LPG, Propane, Hydrogen, even methane)
-- MQ03 (ALCOHOL, ammonia)
+- SMOKE SENSOR (MQ02,MQ06,MQ07,MQ135)
+- MQ02 (Methane, Butane, LPG, Smoke)
+- MQ03 (Alcohol, Ethanol, Smoke)
 - MQ07 (CO, benzene)
-- MQ06 (iso-butane, propane, LNG)
+- MQ06 (iso-butane, propane, LPG)
+- MQ135 (Air Quality)
 - NAVIGATION BUTTON
 - RGB LED
 - GSM 
