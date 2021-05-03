@@ -12,7 +12,6 @@
 | RED       | D0                                     |
 | GREEN     | A6                                     |
 | BLUE      | A7                                     |
-| MQ3       | A1                                     |
 | MQ2       | A2                                     |
 | MQ7       | A3                                     |
 | MQ06      | A4                                     |
@@ -24,7 +23,6 @@
 - DISPLAY 16x2 I2C
 - SMOKE SENSOR (MQ02,MQ06,MQ07,MQ135)
 - MQ02 (Methane, Butane, LPG, Hydrogen)
-- MQ03 (Alcohol, Ethanol, Smoke, Breathalyser)
 - MQ07 (CO, benzene)
 - MQ06 (iso-butane, propane, LPG, LNG)
 - MQ135 (NH3, NOx, alcohol,CO2)
