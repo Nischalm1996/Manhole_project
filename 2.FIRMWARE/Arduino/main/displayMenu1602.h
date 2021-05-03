@@ -16,7 +16,7 @@
 #include "mq135.h"
 #include "mq07.h"
 #include "GSM_MODULE.h"
-
+const String PHONE = "+919449185333";//"+919449185333"
 SprayMotor sprayObj;
 Led ledObj;
 MQ2 mq2obj;
@@ -35,7 +35,7 @@ unsigned int mq7 = 0;
 unsigned int mq135 = 0;
 // Button objects instantiation
 const bool pullup = false;
-Button left(8, pullup);
+Button left(10, pullup);
 Button right(7, pullup);
 //Button up(8, pullup);
 //Button down(9, pullup);
@@ -49,7 +49,7 @@ LiquidScreen welcome_screen(welcome_line1, welcome_line2);
 LiquidLine gasLine1(1, 0, "Methane::", mq2);
 LiquidLine gasLine2(1, 1, "Alcohol::", mq3);
 LiquidScreen GASSCREEN1(gasLine1, gasLine2);
-LiquidLine gasLine3(1, 0, "CO::",mq7);
+LiquidLine gasLine3(1, 0, "CO::", mq7);
 LiquidLine gasLine4(1, 1, "NH3/C6H6::", mq135);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
 LiquidLine clickLine(1, 0, " Click OK to");
@@ -64,7 +64,7 @@ void sprayliquid()
 {
   ledObj.redOn();
   Serial.println(F("Spray"));
-  sprayObj.motor(50);
+  sprayObj.motor(1500);
   ledObj.redOff();
 
 }
@@ -74,12 +74,14 @@ void showDemo()
   ledObj.redOn();
   //send message with values
   Serial.println(F("Demo"));
-  gsm.sendMessage("LEVEL EXCEEDED!", "+919060344544");
+  String message = "Level Exceeded! \n MQ2 =" + String(mq2) +"\n MQ3 =" + String(mq3) +"\n MQ7 =" + String(mq7) +"\n MQ135 =" + String(mq135);
+  gsm.sendMessage(message, PHONE);
+  sprayliquid();
   ledObj.redOff();
 
 
 }
-
+unsigned int count = 0;
 class displayMenu1602
 {
 
@@ -144,7 +146,15 @@ class displayMenu1602
       mq3 = mq3obj.getMq3Value();
       mq7 = mq7obj.getMq7Value();
       mq135 = mq135obj.getMq135Value();
+      count = count + 1;
+      if (count >= 3000)
+      {
+        menu.update();
+        count = 0;
+      }
+
     }
+
 };
 
 #endif //_DISPLAY_MENU_1602_H
