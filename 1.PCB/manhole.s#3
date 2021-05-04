@@ -10219,6 +10219,74 @@ DIN A5, landscape with doc field</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="led_rgb">
+<packages>
+<package name="LED5MMRGB">
+<wire x1="-2.54" y1="1.905" x2="-2.54" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="1.905" x2="-2.54" y2="-1.905" width="0.127" layer="21" curve="-286.260205"/>
+<circle x="0" y="0" radius="2.5" width="0.127" layer="21"/>
+<pad name="P$1" x="-1.905" y="0.7144" drill="0.8" diameter="0.8128" shape="octagon" rot="R90"/>
+<pad name="P$2" x="-0.635" y="-0.7144" drill="0.8" diameter="0.8128" shape="octagon" rot="R90"/>
+<pad name="P$3" x="0.635" y="0.7144" drill="0.8" diameter="0.8128" rot="R90"/>
+<pad name="P$4" x="1.905" y="-0.7144" drill="0.8" diameter="0.8128" shape="octagon" rot="R90"/>
+<text x="-3.175" y="3.175" size="1.27" layer="21">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="LED5MMRGB">
+<wire x1="-3.81" y1="0" x2="-7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="3.81" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="0" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-2.54" x2="-3.81" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="3.81" y1="0" x2="3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="3.81" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="-2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-6.35" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="-8.89" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-8.89" y1="-5.08" x2="-6.35" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="-5.08" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-2.54" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="3.81" y1="-2.54" x2="2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="3.81" y2="-2.54" width="0.254" layer="94"/>
+<text x="-7.62" y="1.27" size="1.778" layer="94">&gt;NAME</text>
+<pin name="BLUE" x="-7.62" y="-15.24" length="middle" rot="R90"/>
+<pin name="GREEN" x="-3.81" y="-15.24" length="middle" rot="R90"/>
+<pin name="GND" x="0" y="-15.24" length="middle" rot="R90"/>
+<pin name="RED" x="3.81" y="-15.24" length="middle" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="5MMRGBLED">
+<gates>
+<gate name="G$1" symbol="LED5MMRGB" x="-5.08" y="10.16"/>
+</gates>
+<devices>
+<device name="" package="LED5MMRGB">
+<connects>
+<connect gate="G$1" pin="BLUE" pad="P$1"/>
+<connect gate="G$1" pin="GND" pad="P$3"/>
+<connect gate="G$1" pin="GREEN" pad="P$2"/>
+<connect gate="G$1" pin="RED" pad="P$4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 <library name="SparkFun-LED" urn="urn:adsk.eagle:library:529">
 <description>&lt;h3&gt;SparkFun LEDs&lt;/h3&gt;
 This library contains discrete LEDs for illumination or indication, but no displays.
@@ -11670,8 +11738,11 @@ Updated by Yingchun,Shan 2019-10-29
 <parts>
 <part name="MQ135" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
 <part name="MQ7" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
+<part name="MQ2" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
+<part name="MQ03" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
 <part name="R1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:6240587/1" value="300r"/>
 <part name="R2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:6240587/1" value="300r"/>
+<part name="U$1" library="led_rgb" deviceset="5MMRGBLED" device=""/>
 <part name="DC_JACK" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="2.1MMJACK" device="THM" package3d_urn="urn:adsk.eagle:package:6240341/1"/>
 <part name="R11" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:6240587/1" value="1k"/>
 <part name="D3" library="SparkFun-LED" library_urn="urn:adsk.eagle:library:529" deviceset="LED" device="3MM" package3d_urn="urn:adsk.eagle:package:39361/1"/>
@@ -11691,8 +11762,6 @@ Updated by Yingchun,Shan 2019-10-29
 <part name="GSM" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
 <part name="SPRAY" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="DINA5_L" device=""/>
-<part name="MQ1" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
-<part name="MQ2" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="JP4E" device="" package3d_urn="urn:adsk.eagle:package:15463/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -11707,6 +11776,14 @@ Updated by Yingchun,Shan 2019-10-29
 <attribute name="NAME" x="20.32" y="168.91" size="1.778" layer="95"/>
 <attribute name="VALUE" x="20.32" y="156.845" size="1.778" layer="96"/>
 </instance>
+<instance part="MQ2" gate="G$1" x="20.32" y="149.86" smashed="yes" rot="R270">
+<attribute name="NAME" x="20.32" y="153.67" size="1.778" layer="95"/>
+<attribute name="VALUE" x="20.32" y="141.605" size="1.778" layer="96"/>
+</instance>
+<instance part="MQ03" gate="G$1" x="20.32" y="137.16" smashed="yes" rot="R270">
+<attribute name="NAME" x="20.32" y="140.97" size="1.778" layer="95"/>
+<attribute name="VALUE" x="20.32" y="128.905" size="1.778" layer="96"/>
+</instance>
 <instance part="R1" gate="G$1" x="34.036" y="168.91" smashed="yes" rot="R90">
 <attribute name="NAME" x="32.5374" y="165.1" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="37.338" y="165.1" size="1.778" layer="96" rot="R90"/>
@@ -11714,6 +11791,9 @@ Updated by Yingchun,Shan 2019-10-29
 <instance part="R2" gate="G$1" x="42.926" y="168.656" smashed="yes" rot="R90">
 <attribute name="NAME" x="41.4274" y="164.846" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="46.228" y="164.846" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="U$1" gate="G$1" x="56.896" y="138.176" smashed="yes" rot="R270">
+<attribute name="NAME" x="58.166" y="145.796" size="1.778" layer="94" rot="R270"/>
 </instance>
 <instance part="DC_JACK" gate="G$1" x="160.02" y="134.62" smashed="yes">
 <attribute name="NAME" x="157.48" y="139.7" size="1.27" layer="95"/>
@@ -11786,14 +11866,6 @@ Updated by Yingchun,Shan 2019-10-29
 <attribute name="LAST_DATE_TIME" x="140.97" y="71.12" size="2.286" layer="94"/>
 <attribute name="SHEET" x="154.305" y="66.04" size="2.54" layer="94"/>
 </instance>
-<instance part="MQ1" gate="G$1" x="20.32" y="152.4" smashed="yes" rot="R270">
-<attribute name="NAME" x="20.32" y="156.21" size="1.778" layer="95"/>
-<attribute name="VALUE" x="20.32" y="144.145" size="1.778" layer="96"/>
-</instance>
-<instance part="MQ2" gate="G$1" x="48.26" y="127" smashed="yes" rot="R270">
-<attribute name="NAME" x="48.26" y="130.81" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.26" y="118.745" size="1.778" layer="96"/>
-</instance>
 </instances>
 <busses>
 </busses>
@@ -11807,6 +11879,21 @@ Updated by Yingchun,Shan 2019-10-29
 <wire x1="177.8" y1="96.52" x2="182.88" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="93.98" x2="177.8" y2="96.52" width="0.1524" layer="91"/>
 <junction x="177.8" y="96.52"/>
+</segment>
+<segment>
+<pinref part="MQ03" gate="G$1" pin="1"/>
+<wire x1="17.78" y1="139.7" x2="10.16" y2="139.7" width="0.1524" layer="91"/>
+<label x="7.62" y="139.7" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="MQ2" gate="G$1" pin="1"/>
+<wire x1="17.78" y1="152.4" x2="10.16" y2="152.4" width="0.1524" layer="91"/>
+<label x="10.16" y="152.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="MQ7" gate="G$1" pin="1"/>
+<wire x1="17.78" y1="167.64" x2="10.16" y2="167.64" width="0.1524" layer="91"/>
+<label x="10.16" y="167.64" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="R4" gate="G$1" pin="1"/>
@@ -11839,13 +11926,33 @@ Updated by Yingchun,Shan 2019-10-29
 <wire x1="17.78" y1="83.82" x2="7.62" y2="83.82" width="0.1524" layer="91"/>
 <label x="12.7" y="83.82" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="GND" class="0">
 <segment>
 <pinref part="MQ135" gate="G$1" pin="2"/>
 <wire x1="17.78" y1="180.34" x2="10.16" y2="180.34" width="0.1524" layer="91"/>
 <label x="7.62" y="180.34" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="GND" class="0">
+<segment>
+<pinref part="MQ7" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="165.1" x2="10.16" y2="165.1" width="0.1524" layer="91"/>
+<label x="7.62" y="165.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="MQ2" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="149.86" x2="10.16" y2="149.86" width="0.1524" layer="91"/>
+<label x="7.62" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="MQ03" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="137.16" x2="10.16" y2="137.16" width="0.1524" layer="91"/>
+<label x="7.62" y="137.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="41.656" y1="138.176" x2="36.576" y2="138.176" width="0.1524" layer="91"/>
+<label x="35.052" y="138.684" size="1.778" layer="95"/>
+</segment>
 <segment>
 <pinref part="DC_JACK" gate="G$1" pin="RING_SW"/>
 <pinref part="DC_JACK" gate="G$1" pin="RING"/>
@@ -11912,38 +12019,33 @@ Updated by Yingchun,Shan 2019-10-29
 <pinref part="JP2" gate="A" pin="12"/>
 <label x="72.644" y="131.826" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="MQ135D0" class="0">
 <segment>
 <pinref part="MQ135" gate="G$1" pin="3"/>
 <wire x1="17.78" y1="177.8" x2="10.16" y2="177.8" width="0.1524" layer="91"/>
 <label x="5.08" y="177.8" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="MQ7D0" class="0">
 <segment>
-<pinref part="MQ135" gate="G$1" pin="4"/>
-<wire x1="17.78" y1="175.26" x2="10.16" y2="175.26" width="0.1524" layer="91"/>
-<label x="5.08" y="175.26" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MQ2" gate="G$1" pin="3"/>
-<wire x1="45.72" y1="124.46" x2="35.56" y2="124.46" width="0.1524" layer="91"/>
-<label x="35.56" y="124.46" size="1.778" layer="95"/>
+<pinref part="MQ7" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="162.56" x2="10.16" y2="162.56" width="0.1524" layer="91"/>
+<label x="5.08" y="162.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MQ6A0" class="0">
+<net name="MQ2D0" class="0">
 <segment>
-<pinref part="MQ7" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="165.1" x2="10.16" y2="165.1" width="0.1524" layer="91"/>
-<label x="7.62" y="165.1" size="1.778" layer="95"/>
+<pinref part="MQ2" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="147.32" x2="10.16" y2="147.32" width="0.1524" layer="91"/>
+<label x="5.08" y="147.32" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="MQ3D0" class="0">
 <segment>
-<pinref part="MQ1" gate="G$1" pin="2"/>
-<wire x1="17.78" y1="152.4" x2="10.16" y2="152.4" width="0.1524" layer="91"/>
-<label x="7.62" y="152.4" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="NANO" gate="G$1" pin="A2"/>
-<wire x1="121.92" y1="116.586" x2="139.192" y2="116.586" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="10"/>
-<label x="125.476" y="116.586" size="1.778" layer="95"/>
+<pinref part="MQ03" gate="G$1" pin="3"/>
+<wire x1="17.78" y1="134.62" x2="10.16" y2="134.62" width="0.1524" layer="91"/>
+<label x="5.08" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RED" class="0">
@@ -11953,9 +12055,9 @@ Updated by Yingchun,Shan 2019-10-29
 <pinref part="R1" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="MQ2" gate="G$1" pin="4"/>
-<wire x1="45.72" y1="121.92" x2="35.56" y2="121.92" width="0.1524" layer="91"/>
-<label x="35.56" y="121.92" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="RED"/>
+<wire x1="41.656" y1="134.366" x2="36.576" y2="134.366" width="0.1524" layer="91"/>
+<label x="34.798" y="134.366" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GREEN" class="0">
@@ -11966,9 +12068,9 @@ Updated by Yingchun,Shan 2019-10-29
 <pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="MQ2" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="127" x2="35.56" y2="127" width="0.1524" layer="91"/>
-<label x="35.56" y="127" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="GREEN"/>
+<wire x1="41.656" y1="141.986" x2="36.576" y2="141.986" width="0.1524" layer="91"/>
+<label x="32.004" y="142.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="BLUE" class="0">
@@ -11979,9 +12081,9 @@ Updated by Yingchun,Shan 2019-10-29
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="MQ2" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="129.54" x2="35.56" y2="129.54" width="0.1524" layer="91"/>
-<label x="35.56" y="129.54" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="BLUE"/>
+<wire x1="41.656" y1="145.796" x2="36.576" y2="145.796" width="0.1524" layer="91"/>
+<label x="34.036" y="145.796" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -12013,34 +12115,11 @@ Updated by Yingchun,Shan 2019-10-29
 <label x="172.72" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MQ2A0" class="0">
+<net name="MQ3A0" class="0">
 <segment>
-<pinref part="MQ7" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="167.64" x2="10.16" y2="167.64" width="0.1524" layer="91"/>
-<label x="10.16" y="167.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MQ1" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="154.94" x2="10.16" y2="154.94" width="0.1524" layer="91"/>
-<label x="10.16" y="154.94" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="NANO" gate="G$1" pin="A3"/>
-<wire x1="121.92" y1="119.126" x2="139.192" y2="119.126" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="9"/>
-<label x="125.222" y="119.126" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="MQ7A0" class="0">
-<segment>
-<pinref part="MQ7" gate="G$1" pin="3"/>
-<wire x1="17.78" y1="162.56" x2="10.16" y2="162.56" width="0.1524" layer="91"/>
-<label x="5.08" y="162.56" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MQ1" gate="G$1" pin="3"/>
-<wire x1="17.78" y1="149.86" x2="10.16" y2="149.86" width="0.1524" layer="91"/>
-<label x="7.62" y="149.86" size="1.778" layer="95"/>
+<pinref part="MQ03" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="132.08" x2="10.16" y2="132.08" width="0.1524" layer="91"/>
+<label x="10.16" y="132.08" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="NANO" gate="G$1" pin="A1"/>
@@ -12049,22 +12128,43 @@ Updated by Yingchun,Shan 2019-10-29
 <label x="125.222" y="114.046" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="MQ135A0" class="0">
+<net name="MQ2A0" class="0">
 <segment>
-<pinref part="NANO" gate="G$1" pin="A0"/>
-<wire x1="121.92" y1="111.506" x2="139.192" y2="111.506" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="A" pin="12"/>
-<label x="125.222" y="111.76" size="1.778" layer="95"/>
+<pinref part="MQ2" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="144.78" x2="10.16" y2="144.78" width="0.1524" layer="91"/>
+<label x="7.62" y="144.78" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="NANO" gate="G$1" pin="A2"/>
+<wire x1="121.92" y1="116.586" x2="139.192" y2="116.586" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="10"/>
+<label x="125.476" y="116.586" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="MQ7A0" class="0">
 <segment>
 <pinref part="MQ7" gate="G$1" pin="4"/>
 <wire x1="17.78" y1="160.02" x2="10.16" y2="160.02" width="0.1524" layer="91"/>
 <label x="7.62" y="160.02" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MQ1" gate="G$1" pin="4"/>
-<wire x1="17.78" y1="147.32" x2="10.16" y2="147.32" width="0.1524" layer="91"/>
-<label x="7.62" y="147.32" size="1.778" layer="95"/>
+<pinref part="NANO" gate="G$1" pin="A3"/>
+<wire x1="121.92" y1="119.126" x2="139.192" y2="119.126" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="9"/>
+<label x="125.222" y="119.126" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="MQ135A0" class="0">
+<segment>
+<pinref part="MQ135" gate="G$1" pin="4"/>
+<wire x1="17.78" y1="175.26" x2="10.16" y2="175.26" width="0.1524" layer="91"/>
+<label x="5.08" y="175.26" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="NANO" gate="G$1" pin="A0"/>
+<wire x1="121.92" y1="111.506" x2="139.192" y2="111.506" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="A" pin="12"/>
+<label x="125.222" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D1" class="0">
@@ -12182,10 +12282,10 @@ Updated by Yingchun,Shan 2019-10-29
 <pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="NANO" gate="G$1" pin="D10"/>
-<wire x1="81.28" y1="108.966" x2="66.802" y2="108.966" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="3"/>
-<label x="73.66" y="109.22" size="1.778" layer="95"/>
+<pinref part="NANO" gate="G$1" pin="D0/TX"/>
+<wire x1="81.28" y1="139.446" x2="66.802" y2="139.446" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="15"/>
+<label x="75.184" y="139.446" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GREEN1" class="0">
@@ -12220,6 +12320,14 @@ Updated by Yingchun,Shan 2019-10-29
 <wire x1="121.92" y1="131.826" x2="139.192" y2="131.826" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="A" pin="4"/>
 <label x="124.968" y="131.826" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SS" class="0">
+<segment>
+<pinref part="NANO" gate="G$1" pin="D10"/>
+<wire x1="81.28" y1="108.966" x2="66.802" y2="108.966" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="3"/>
+<label x="73.66" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -12338,14 +12446,6 @@ Updated by Yingchun,Shan 2019-10-29
 <wire x1="81.28" y1="111.506" x2="66.802" y2="111.506" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="A" pin="4"/>
 <label x="73.914" y="111.506" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="D0" class="0">
-<segment>
-<pinref part="NANO" gate="G$1" pin="D0/TX"/>
-<wire x1="81.28" y1="139.446" x2="66.802" y2="139.446" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="15"/>
-<label x="75.184" y="139.446" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
