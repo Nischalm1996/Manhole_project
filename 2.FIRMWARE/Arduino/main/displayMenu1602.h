@@ -15,15 +15,6 @@
 #include "GAS_SENSORS.h"
 
 const char PHONE[] PROGMEM = "+919060344544";
-const char manhole_gas[] PROGMEM ="MANHOLE GAS";
-const char det[] PROGMEM ="DETECTION!!";
-const char lpg_s[] PROGMEM ="LPG(PPM):";
-const char ch4_s[] PROGMEM ="CH4(PPM):";
-const char co_s[] PROGMEM ="CO(PPM):";
-const char nh4_s[] PROGMEM ="NH4(PPM):";
-const char clickok[] PROGMEM =" Click OK to";
-const char spry[] PROGMEM =" SPRAY";
-const char demo[] PROGMEM =" DEMO";
 
 SprayMotor sprayObj;
 
@@ -43,26 +34,26 @@ float ammonia = 0.0;
 
 // Button objects instantiation
 const bool pullup = false;
-Button left(10, pullup);
-Button right(7, pullup);
+Button left(7, pullup);
+Button right(8, pullup);
 //Button up(8, pullup);
 //Button down(9, pullup);
-Button enter(6, pullup);
+Button enter(9, pullup);
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-LiquidLine welcome_line1(1, 0,manhole_gas );
-LiquidLine welcome_line2(1, 1, det);
+LiquidLine welcome_line1(1, 0,"MANHOLE GAS");
+LiquidLine welcome_line2(1, 1, "DETECTION!!");
 LiquidScreen welcome_screen(welcome_line1, welcome_line2);
-LiquidLine gasLine1(1, 0, lpg_s, LPG);
-LiquidLine gasLine2(1, 1,ch4_s , methane);
+LiquidLine gasLine1(1, 0, "LPG(PPM):", LPG);
+LiquidLine gasLine2(1, 1,"CH4(PPM):" , methane);
 LiquidScreen GASSCREEN1(gasLine1, gasLine2);
-LiquidLine gasLine3(1, 0, co_s, co);
-LiquidLine gasLine4(1, 1, nh4_s, ammonia);
+LiquidLine gasLine3(1, 0, "CO(PPM):", co);
+LiquidLine gasLine4(1, 1, "NH4(PPM):", ammonia);
 LiquidScreen GASSCREEN2(gasLine3, gasLine4);
-LiquidLine clickLine(1, 0, clickok);
-LiquidLine spray_line(5, 1, spry);
-LiquidLine demo_line(5, 1, demo);
+LiquidLine clickLine(1, 0, " Click OK to");
+LiquidLine spray_line(5, 1, " SPRAY");
+LiquidLine demo_line(5, 1, " DEMO");
 LiquidScreen screen3(clickLine, spray_line);
 LiquidScreen screen4(clickLine, demo_line);
 
@@ -70,10 +61,10 @@ LiquidMenu menu(lcd);
 
 void sprayliquid()
 {
-  ledObj.redOn();
+  ledObj.blueOn();
   Serial.println(F("Spray"));
   sprayObj.motor(1500);
-  ledObj.redOff();
+  ledObj.blueOff();
 
 }
 void showDemo()
@@ -98,7 +89,10 @@ class displayMenu1602
     {
 
       Serial.begin(9600);
+      //uncomment in the final code after attaching gas sensors
+      ledObj.greenOn();
       gasObj.begin();
+      ledObj.greenOff();
       sprayObj.begin();
       ledObj.begin();
       ledObj.Red(500);

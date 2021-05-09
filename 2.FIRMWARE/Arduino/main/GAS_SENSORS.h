@@ -7,9 +7,9 @@
 /************************Hardware Related Macros************************************/
 #define         Board                   ("Arduino Mega")
 const int       PMQ135                  =(A0);
-const int       PMQ6                    =(A1);
-const int       PMQ2                    =(A2);
-const int       PMQ7                    =(A3);
+const int       PMQ7                    =(A1);
+const int       PMQ6                    =(A2);
+const int       PMQ2                    =(A3);
 /***********************Software Related Macros************************************/
 #define         RatioMQ2CleanAir          (9.83) //RS / R0 = 9.83 ppm 
 #define         RatioMQ6CleanAir          (10) //RS / R0 = 10 ppm 
