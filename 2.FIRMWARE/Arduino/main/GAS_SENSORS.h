@@ -6,7 +6,7 @@
 
 /************************Hardware Related Macros************************************/
 #define         Board                   ("Arduino Mega")
-const int       PMQ135                  = (A0);
+const int       PMQ135                  =(A0);
 const int       PMQ6                    =(A1);
 const int       PMQ2                    =(A2);
 const int       PMQ7                    =(A3);
@@ -58,7 +58,7 @@ class GAS_SENSORS
       // We recomend execute this routine only on setup or on the laboratory and save on the eeprom of your arduino
       // This routine not need to execute to every restart, you can load your R0 if you know the value
       // Acknowledgements: https://jayconsystems.com/blog/understanding-a-gas-sensor
-      Serial.print("Calibrating please wait.");
+      Serial.print(F("Calibrating please wait."));
       float MQ2calcR0 = 0,
             MQ6calcR0 = 0,
             MQ7calcR0 = 0,

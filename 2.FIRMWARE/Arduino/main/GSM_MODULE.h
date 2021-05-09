@@ -16,9 +16,9 @@ public:
     {
         mySerial.begin(9600);
         delay(1000);
-        mySerial.println("AT");
+        mySerial.println(F("AT"));
         delay(500);
-        mySerial.println("AT+CMGF=1");
+        mySerial.println(F("AT+CMGF=1"));
         delay(500);
         mySerial.println("AT+CMGS=\"" + number + "\"\r");
         delay(500);
